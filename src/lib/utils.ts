@@ -12,40 +12,40 @@ export function absoluteUrl(path: string) {
   return `http://localhost:${process.env.PORT ?? 3000}${path}`
 }
 
-export function constructMetadata({
-  title = 'Baper - the SaaS for students',
-  description = 'Baper is an open-source software to make chatting to your PDF files easy.',
-  image = '/thumbnail.png',
-  icons = '/favicon.ico',
-  noIndex = false,
-}: {
-  title?: string
-  description?: string
-  image?: string
-  icons?: string
-  noIndex?: boolean
-} = {}): Metadata {
-  return {
-    title,
-    description,
-    openGraph: {
-      title,
-      description,
-      images: [
-        {
-          url: image,
-        },
-      ],
-    },
+// export function constructMetadata({
+//   title = 'Baper - the SaaS for students',
+//   description = 'Baper is an open-source software to make chatting to your PDF files easy.',
+//   image = '/thumbnail.png',
+//   icons = '/favicon.ico',
+//   noIndex = false,
+// }: {
+//   title?: string
+//   description?: string
+//   image?: string
+//   icons?: string
+//   noIndex?: boolean
+// } = {}): Metadata {
+//   return {
+//     title,
+//     description,
+//     openGraph: {
+//       title,
+//       description,
+//       images: [
+//         {
+//           url: image,
+//         },
+//       ],
+//     },
 
-    icons,
-    metadataBase: new URL('https://localhost:3000'),
+//     icons,
+//     metadataBase: new URL('https://localhost:3000'),
 
-    ...(noIndex && {
-      robots: {
-        index: false,
-        follow: false,
-      },
-    }),
-  }
-}
+//     ...(noIndex && {
+//       robots: {
+//         index: false,
+//         follow: false,
+//       },
+//     }),
+//   }
+// }
