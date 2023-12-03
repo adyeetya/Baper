@@ -3,7 +3,7 @@ import MaxWidthWrapper from '../components/MaxWidthWrapper'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { Button, buttonVariants } from '../components/ui/button'
-import { RegisterLink } from '@kinde-oss/kinde-auth-nextjs/server'
+import { RegisterLink } from '@kinde-oss/kinde-auth-nextjs/components'
 
 export default function Home() {
   return (

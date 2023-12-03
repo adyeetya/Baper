@@ -2,11 +2,11 @@ import React from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import Link from 'next/link'
 import { buttonVariants } from '../components/ui/button'
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server'
 import {
-  LoginLink,
   RegisterLink,
-  getKindeServerSession,
-} from '@kinde-oss/kinde-auth-nextjs/server'
+  LoginLink,
+} from '@kinde-oss/kinde-auth-nextjs/components'
 import { ArrowRight } from 'lucide-react'
 import UserAccountNav from './UserAccountNav'
 import MobileNav from './MobileNav'
@@ -55,6 +55,7 @@ const Navbar = async () => {
                 </LoginLink>
 
                 <RegisterLink
+                  postLoginRedirectURL="/dashboard"
                   className={buttonVariants({
                     size: 'sm',
                   })}
