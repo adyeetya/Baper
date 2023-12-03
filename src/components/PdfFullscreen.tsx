@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, {  useState } from 'react'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
 import { Expand, Loader2 } from 'lucide-react'
 import { Button } from './ui/button'
@@ -10,41 +10,17 @@ import 'react-pdf/dist/Page/TextLayer.css'
 import { useToast } from './ui/use-toast'
 
 interface PdfFullscreenProps {
-  fileUrl: String
+  fileUrl: string
 }
 
 const PdfFullscreen = ({ fileUrl }: PdfFullscreenProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false)
-  const { toast } = useToast()
+  const [isOpen, setIsOpen] = useState(false)
   const [numPages, setNumPages] = useState<number>()
 
-  //   const parentRef = useRef<HTMLDivElement>(null)
-
-  //   const [parentWidth, setParentWidth] = useState<number>(0)
-
-  //   useEffect(() => {
-  //     const updateParentWidth = () => {
-  //       if (parentRef.current) {
-  //         setParentWidth(parentRef.current.clientWidth)
-  //       }
-  //     }
-
-  //     // Initial width update
-  //     updateParentWidth()
-
-  //     // Attach a resize event listener to update the width dynamically
-  //     window.addEventListener('resize', updateParentWidth)
-
-  //     // Clean up the event listener on component unmount
-  //     return () => {
-  //       window.removeEventListener('resize', updateParentWidth)
-  //     }
-  //   }, [])
-  //   console.log('parent wid ' + parentWidth)
+  const { toast } = useToast()
 
   const { width, ref } = useResizeDetector()
-//   console.log(ref)
-//   console.log(width)
+
   return (
     <Dialog
       open={isOpen}
@@ -54,13 +30,13 @@ const PdfFullscreen = ({ fileUrl }: PdfFullscreenProps) => {
         }
       }}
     >
-      <DialogTrigger asChild onClick={() => setIsOpen(true)}>
+      <DialogTrigger onClick={() => setIsOpen(true)} asChild>
         <Button variant="ghost" className="gap-1.5" aria-label="fullscreen">
           <Expand className="h-4 w-4" />
         </Button>
       </DialogTrigger>
       <DialogContent className="max-w-7xl w-full">
-        <SimpleBar className="max-h-[calc(100vh-10rem)] mt-6" autoHide={false}>
+        <SimpleBar autoHide={false} className="max-h-[calc(100vh-10rem)] mt-6">
           <div ref={ref}>
             <Document
               loading={
